@@ -1,5 +1,5 @@
 connection: "thelook"
-# making a change
+# making a change again
 # include all the views
 include: "*.view"
 
