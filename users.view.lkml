@@ -57,7 +57,7 @@ view: users {
   }
 
   dimension: state {
-    type: string
+    type: number
     sql: ${TABLE}.state ;;
   }
 

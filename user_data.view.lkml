@@ -2,7 +2,7 @@ view: user_data {
   sql_table_name: demo_db.user_data ;;
 
   dimension: id {
-    type: number
+    type: string
     sql: ${TABLE}.id ;;
   }
 
