@@ -6,7 +6,8 @@ view: events {
     type: number
     sql: ${TABLE}.id ;;
   }
-#   dffd I am making a chjange
+
+
 
   dimension_group: created {
     type: time
