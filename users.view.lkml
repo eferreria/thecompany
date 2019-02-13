@@ -2,6 +2,7 @@ view: users {
   sql_table_name: demo_db.users ;;
 
   dimension: id {
+    primary_key: yes
     type: number
     sql: ${TABLE}.id ;;
   }
@@ -57,7 +58,7 @@ view: users {
   }
 
   dimension: state {
-    type: number
+    type: string
     sql: ${TABLE}.state ;;
   }
 
