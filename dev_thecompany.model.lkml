@@ -8,6 +8,8 @@ datagroup: dev_thecompany_default_datagroup {
   max_cache_age: "2 hour"
 }
 
+# Changes in the model
+
 persist_with: dev_thecompany_default_datagroup
 
 explore: events {
