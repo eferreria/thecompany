@@ -1,4 +1,4 @@
-connection: "thelook"
+connection: "thelook_events"
 #this is version 1.2
 # deleted
 # include all the views
