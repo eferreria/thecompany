@@ -1,4 +1,5 @@
 connection: "thelook"
+#this is version 1.11
 # deleted
 # include all the views
 include: "*.view"
