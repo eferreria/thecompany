@@ -1,6 +1,9 @@
 connection: "thelook_events"
+
 #this is version 1.2
 # Changes for the demo
+# Testing Purposes
+
 # include all the views
 include: "*.view"
 
