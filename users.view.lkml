@@ -63,7 +63,7 @@ view: users {
   }
 
   dimension: zip {
-    type: zipcode
+    type: date
     sql: ${TABLE}.zip ;;
   }
 
