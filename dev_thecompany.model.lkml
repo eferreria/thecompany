@@ -13,6 +13,8 @@ datagroup: dev_thecompany_default_datagroup {
 }
 
 # Changes in the model
+week_start_day: sunday
+fiscal_month_offset: 3
 
 persist_with: dev_thecompany_default_datagroup
 
