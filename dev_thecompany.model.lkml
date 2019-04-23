@@ -13,6 +13,7 @@ datagroup: dev_thecompany_default_datagroup {
 week_start_day: sunday
 fiscal_month_offset: 3
 
+# additional changes for demo today
 persist_with: dev_thecompany_default_datagroup
 
 explore: events {
