@@ -38,4 +38,8 @@ view: orders {
     type: count
     drill_fields: [id, users.first_name, users.last_name, users.id, order_items.count]
   }
+
+  set: default {
+    fields: [users.city, users.state, status, count]
+  }
 }

@@ -48,6 +48,7 @@ view: users {
   }
 
   dimension: gender {
+    label: "({{_view._name}}) Gender"
     type: string
     sql: ${TABLE}.gender ;;
   }
