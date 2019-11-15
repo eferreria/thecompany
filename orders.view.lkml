@@ -16,7 +16,9 @@ view: orders {
       week,
       month,
       quarter,
-      year
+      year,
+      fiscal_quarter,
+      fiscal_quarter_of_year
     ]
     sql: ${TABLE}.created_at ;;
   }
@@ -35,5 +37,9 @@ view: orders {
   measure: count {
     type: count
     drill_fields: [id, users.first_name, users.last_name, users.id, order_items.count]
+  }
+
+  set: default {
+    fields: [users.city, users.state, status, count]
   }
 }

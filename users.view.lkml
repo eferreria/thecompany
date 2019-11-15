@@ -48,6 +48,7 @@ view: users {
   }
 
   dimension: gender {
+    label: "({{_view._name}}) Gender"
     type: string
     sql: ${TABLE}.gender ;;
   }
@@ -59,6 +60,7 @@ view: users {
 
   dimension: state {
     type: string
+    map_layer_name: us_states
     sql: ${TABLE}.state ;;
   }
 

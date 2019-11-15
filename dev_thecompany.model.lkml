@@ -1,6 +1,8 @@
-connection: "thelook"
-# deleted
+connection: "thelook_events"
+#this is version 2.0
+# Changes for the demo
 # include all the views
+# changes for the demo today for John and Taylor
 include: "*.view"
 
 datagroup: dev_thecompany_default_datagroup {
@@ -9,7 +11,10 @@ datagroup: dev_thecompany_default_datagroup {
 }
 
 # Changes in the model
+week_start_day: sunday
+fiscal_month_offset: 3
 
+# additional changes for demo today
 persist_with: dev_thecompany_default_datagroup
 
 explore: events {
@@ -17,6 +22,13 @@ explore: events {
     type: left_outer
     sql_on: ${events.user_id} = ${users.id} ;;
     relationship: many_to_one
+  }
+  join: another_user {
+    type: left_outer
+    from: users
+    sql_on: ${events.user_id} = ${another_user.id} ;;
+    relationship: many_to_one
+    fields: [another_user.gender]
   }
 }
 
@@ -52,6 +64,7 @@ explore: order_items {
     sql_on: ${orders.user_id} = ${users.id} ;;
     relationship: many_to_one
   }
+
 }
 
 explore: orders {
