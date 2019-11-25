@@ -1,3 +1,6 @@
+# I am making an edit here on 11/25
+# Additional code changes for this demonstration
+
 view: events {
   sql_table_name: demo_db.events ;;
 

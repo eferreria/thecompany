@@ -26,6 +26,13 @@ explore: events {
     sql_on: ${events.user_id} = ${users.id} ;;
     relationship: many_to_one
   }
+  join: another_user {
+    type: left_outer
+    from: users
+    sql_on: ${events.user_id} = ${another_user.id} ;;
+    relationship: many_to_one
+    fields: [another_user.gender]
+  }
 }
 
 explore: inventory_items {
@@ -60,6 +67,7 @@ explore: order_items {
     sql_on: ${orders.user_id} = ${users.id} ;;
     relationship: many_to_one
   }
+
 }
 
 explore: orders {

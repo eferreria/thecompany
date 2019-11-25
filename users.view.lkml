@@ -48,6 +48,7 @@ view: users {
   }
 
   dimension: gender {
+    label: "({{_view._name}}) Gender"
     type: string
     sql: ${TABLE}.gender ;;
   }
@@ -70,7 +71,7 @@ view: users {
 
   measure: count {
     type: count
-    drill_fields: [detail*]
+    drill_fields: [detail*, state, city, country]
   }
 
   # ----- Sets of fields for drilling ------
