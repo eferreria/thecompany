@@ -289,14 +289,14 @@
     col: 8
     width: 4
     height: 2
-  filters:
-  - name: Event Month
-    title: Event Month
-    type: field_filter
-    default_value: this month
-    allow_multiple_values: true
-    required: false
-    model: operational_metrics
-    explore: operational_metrics
-    listens_to_filters: []
-    field: operational_metrics.event_date
+  # filters:
+  # - name: Event Month
+  #   title: Event Month
+  #   type: field_filter
+  #   default_value: this month
+  #   allow_multiple_values: true
+  #   required: false
+  #   model: operational_metrics
+  #   explore: operational_metrics
+  #   listens_to_filters: []
+  #   field: operational_metrics.event_date
