@@ -2,7 +2,6 @@ connection: "thelook_events"
 #this is version 2.0
 # Changes for the demo
 # include all the views
-# changes for the demo today for John and Taylor
 include: "*.view"
 
 datagroup: dev_thecompany_default_datagroup {
