@@ -5,6 +5,7 @@ connection: "thelook_events"
 # Testing Purposes
 
 # include all the views
+# edit on 12/16 for demo
 include: "*.view"
 
 datagroup: dev_thecompany_default_datagroup {
