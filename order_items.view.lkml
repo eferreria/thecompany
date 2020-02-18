@@ -182,7 +182,8 @@ explore: dynamic_dates_step {}
 
 view: dynamic_dimension {
   derived_table: {
-    sql: select {{user_input_dynamic_dim._parameter_value}} as dim_1 from demo_db.orders
+    sql: select {{user_input_dynamic_dim._parameter_value}} as dim_1
+    from ${orders.SQL_TABLE_NAME}
     where created_at between {% date_start custom_date %} and {% date_end custom_date %}
     ;;
   }
@@ -191,11 +192,17 @@ view: dynamic_dimension {
     type: date
   }
 
-
   parameter: user_input_dynamic_dim {
     type: unquoted
     suggest_explore: column_names
     suggest_dimension: column_names.column_name
+  }
+
+  filter: user_input_column {
+    type: string
+    suggest_explore: column_names
+    suggest_dimension: column_names.column_name
+    sql: {{value}} ;;
   }
 
   dimension: dynamic_dim {
