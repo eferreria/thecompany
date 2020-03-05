@@ -4,6 +4,7 @@ connection: "thelook_events"
 # include all the views
 # edit on 12/16 for demo
 include: "*.view"
+include: "*.dashboard"
 
 datagroup: dev_thecompany_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
@@ -17,7 +18,20 @@ fiscal_month_offset: 3
 # additional changes for demo today
 persist_with: dev_thecompany_default_datagroup
 
+# explore: events_two {
+#   from: events
+
+#   join: users {
+#     type: left_outer
+#     sql_on: ${events.user_id} = ${users.id} ;;
+#     relationship: many_to_one
+#   }
+
+
+# }
+
 explore: events {
+  fields: [ALL_FIELDS*, -users.total_orders_per_user]
   join: users {
     type: left_outer
     sql_on: ${events.user_id} = ${users.id} ;;
@@ -68,6 +82,7 @@ explore: order_items {
 }
 
 explore: orders {
+  fields: [ALL_FIELDS*, -users.total_orders_per_user]
   join: users {
     type: left_outer
     sql_on: ${orders.user_id} = ${users.id} ;;
@@ -80,6 +95,7 @@ explore: products {}
 explore: schema_migrations {}
 
 explore: user_data {
+  fields: [ALL_FIELDS*, -users.total_orders_per_user]
   join: users {
     type: left_outer
     sql_on: ${user_data.user_id} = ${users.id} ;;
@@ -87,6 +103,8 @@ explore: user_data {
   }
 }
 
-explore: users {}
+explore: users {
+  fields: [ALL_FIELDS*, -users.total_orders_per_user]
+}
 
 explore: users_nn {}

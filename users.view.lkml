@@ -71,7 +71,14 @@ view: users {
 
   measure: count {
     type: count
-    drill_fields: [detail*, state, city, country]
+    drill_fields: [state, city, country]
+  }
+
+  drill_fields: [detail*]
+
+  measure: total_orders_per_user {
+    type: number
+    sql: 1.0*${order_items.total_sales}${count} ;;
   }
 
   # ----- Sets of fields for drilling ------
