@@ -29,7 +29,7 @@ view: orders {
 
   dimension: status_dim {
     type: string
-    sql: case when {% condition status_choice %} ${status} {% endcondition %} then ${status} else 'All Other Status' end ;;
+    sql: case when {% condition status_choice %} ${status} {% endcondition %} then ${status} else 'All Other Statuses' end ;;
   }
 
   dimension: status {
