@@ -1,5 +1,5 @@
 connection: "thelook_events"
-#this is version
+#this is version 3.0 for demo
 # Changes for the demo
 # Testing Purposes
 
