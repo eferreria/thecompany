@@ -1,14 +1,42 @@
 connection: "thelook_events"
-#this is version 2.0
+#this is version
 # Changes for the demo
 # include all the views
 # edit on 12/16 for demo
-include: "*.view"
-include: "*.dashboard"
 
-datagroup: dev_thecompany_default_datagroup {
+
+#editing this for LaL
+
+include: "*.view"
+# include: "*.dashboard"
+
+datagroup: devthecompany_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "2 hour"
+}
+
+datagroup: default {
+  sql_trigger: select extract(h from current_time) ;;
+  max_cache_age: "1 hours"
+}
+
+datagroup: daily {
+  sql_trigger: select dat ;;
+  max_cache_age: "24 hour"
+}
+
+datagroup: four_hours {
+  max_cache_age: "4 hour"
+}
+
+persist_with: default
+
+view: orders_new {
+  extends: [orders]
+}
+
+explore: orders_new {
+  persist_with: daily
 }
 
 # Changes in the model
@@ -16,7 +44,7 @@ week_start_day: sunday
 fiscal_month_offset: 3
 
 # additional changes for demo today
-persist_with: dev_thecompany_default_datagroup
+# persist_with: dev_thecompany_default_datagroup
 
 # explore: events_two {
 #   from: events
@@ -90,7 +118,9 @@ explore: orders {
   }
 }
 
-explore: products {}
+explore: products {
+
+}
 
 explore: schema_migrations {}
 
@@ -105,6 +135,12 @@ explore: user_data {
 
 explore: users {
   fields: [ALL_FIELDS*, -users.total_orders_per_user]
+
+  access_filter: {
+    field: state
+    user_attribute: state
+  }
+
 }
 
 explore: users_nn {}

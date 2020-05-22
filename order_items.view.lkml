@@ -176,39 +176,39 @@ WHERE table_schema = 'demo_db'
   dimension: column_name {}
 }
 
-explore: column_names {}
+# explore: column_names {}
 
-explore: dynamic_dates_step {}
+# explore: dynamic_dates_step {}
 
-view: dynamic_dimension {
-  derived_table: {
-    sql: select {{user_input_dynamic_dim._parameter_value}} as dim_1
-    from ${orders.SQL_TABLE_NAME}
-    where created_at between {% date_start custom_date %} and {% date_end custom_date %}
-    ;;
-  }
+# view: dynamic_dimension {
+#   derived_table: {
+#     sql: select {{user_input_dynamic_dim._parameter_value}} as dim_1
+#     from ${orders.SQL_TABLE_NAME}
+#     where created_at between {% date_start custom_date %} and {% date_end custom_date %}
+#     ;;
+#   }
 
-  filter: custom_date {
-    type: date
-  }
+#   filter: custom_date {
+#     type: date
+#   }
 
-  parameter: user_input_dynamic_dim {
-    type: unquoted
-    suggest_explore: column_names
-    suggest_dimension: column_names.column_name
-  }
+#   parameter: user_input_dynamic_dim {
+#     type: unquoted
+#     suggest_explore: column_names
+#     suggest_dimension: column_names.column_name
+#   }
 
-  filter: user_input_column {
-    type: string
-    suggest_explore: column_names
-    suggest_dimension: column_names.column_name
-    sql: {{value}} ;;
-  }
+#   filter: user_input_column {
+#     type: string
+#     suggest_explore: column_names
+#     suggest_dimension: column_names.column_name
+#     sql: {{value}} ;;
+#   }
 
-  dimension: dynamic_dim {
-    sql: ${TABLE}.dim_1  ;;
-  }
+#   dimension: dynamic_dim {
+#     sql: ${TABLE}.dim_1  ;;
+#   }
 
-}
+# }
 
-explore: dynamic_dimension {}
+# explore: dynamic_dimension {}
