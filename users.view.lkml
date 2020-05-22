@@ -21,6 +21,7 @@ view: users {
     type: string
     map_layer_name: countries
     sql: ${TABLE}.country ;;
+    drill_fields: [state, city]
   }
 
   dimension_group: created {
@@ -62,6 +63,7 @@ view: users {
     type: string
     map_layer_name: us_states
     sql: ${TABLE}.state ;;
+    drill_fields: [city]
   }
 
   dimension: zip {
@@ -71,13 +73,21 @@ view: users {
 
   measure: count {
     type: count
-    drill_fields: [detail*, state, city, country]
+    drill_fields: [-detail*, state, city, country]
+  }
+
+  drill_fields: []
+
+  measure: total_orders_per_user {
+    type: number
+    sql: 1.0*${order_items.total_sales}${count} ;;
   }
 
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
       id,
+      city,
       first_name,
       last_name,
       events.count,

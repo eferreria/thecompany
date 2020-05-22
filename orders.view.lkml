@@ -23,9 +23,19 @@ view: orders {
     sql: ${TABLE}.created_at ;;
   }
 
+  filter: status_choice {
+    suggest_dimension: status
+  }
+
+  dimension: status_dim {
+    type: string
+    sql: case when {% condition status_choice %} ${status} {% endcondition %} then ${status} else 'All Other Statuses' end ;;
+  }
+
   dimension: status {
     type: string
     sql: ${TABLE}.status ;;
+    html: <font color="blue">{{value}}</font> ;;
   }
 
   dimension: user_id {
